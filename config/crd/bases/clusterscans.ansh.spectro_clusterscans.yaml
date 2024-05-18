@@ -4,9 +4,9 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.14.0
-  name: clusterscans.cluster-scans.ansh.spectro
+  name: clusterscans.clusterscans.ansh.spectro
 spec:
-  group: cluster-scans.ansh.spectro
+  group: clusterscans.ansh.spectro
   names:
     kind: ClusterScan
     listKind: ClusterScanList
@@ -39,10 +39,31 @@ spec:
           spec:
             description: ClusterScanSpec defines the desired state of ClusterScan
             properties:
-              foo:
+              cronJob:
+                items:
+                  properties:
+                    name:
+                      type: string
+                    namespace:
+                      type: string
+                  required:
+                  - name
+                  - namespace
+                  type: object
+                type: array
+              end:
+                type: integer
+              newSchedule:
+                type: string
+              start:
                 description: Foo is an example field of ClusterScan. Edit clusterscan_types.go
                   to remove/update
-                type: string
+                type: integer
+            required:
+            - cronJob
+            - end
+            - newSchedule
+            - start
             type: object
           status:
             description: ClusterScanStatus defines the observed state of ClusterScan

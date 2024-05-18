@@ -5,7 +5,7 @@
 domain: ansh.spectro
 layout:
 - go.kubebuilder.io/v4
-projectName: projects
+projectName: ansh
 repo: ansh.spectro
 resources:
 - api:
@@ -13,7 +13,7 @@ resources:
     namespaced: true
   controller: true
   domain: ansh.spectro
-  group: cluster-scans
+  group: clusterscans
   kind: ClusterScan
   path: ansh.spectro/api/v1
   version: v1
