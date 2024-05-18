@@ -1,0 +1,15 @@
+apiVersion: clusterscans.ansh.spectro/v1
+kind: ClusterScan
+metadata:
+  labels:
+    app.kubernetes.io/name: ansh
+    app.kubernetes.io/managed-by: kustomize
+  name: clusterscan
+spec:
+  start: 5
+  end: 10
+  newSchedule: "*/5 * * * *"
+  cronJob:
+    - name: spectro-cloud
+      namespace: default
+

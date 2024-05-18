@@ -29,7 +29,15 @@ type ClusterScanSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of ClusterScan. Edit clusterscan_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Start       int              `json:"start"`
+	End         int              `json:"end"`
+	NewSchedule string           `json:"newSchedule"`
+	CronJob     []NamespacedName `json:"cronJob"`
+}
+
+type NamespacedName struct {
+	Name      string `json:"name"`
+	Namespace string `json:"namespace"`
 }
 
 // ClusterScanStatus defines the observed state of ClusterScan
